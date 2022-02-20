@@ -1,0 +1,22 @@
+			/*while(!(line[i]=='<'||line[i]=='&'||line[i]=='>')&&i<length){
+			if(line[i]>=32&&line[i]<=127)i++;
+			else return false;
+		}*/
+				/*int j=i;
+					while(line[j]!='>')j++;
+					cout<<string(line+i,line+j-i)<<endl;
+					if(string(line+i,line+j-i).compare(c.top())==0){
+						
+						c.pop();
+						i=j+1;
+					}else return false;*/
+/*
+				while(line[j]!='>')j++;
+				if(line[j-1]=='/'){continue;}//<tag/>,2?¨®?1¨¹ 
+				else if(line[j-1]=='<')c.push("");//<tag>,??¡ä?¨¨??? 
+				else {
+					c.push(string(line,i+1,j-i-1));
+					//cout<<c.top()<<endl;
+					printf("%d %d\n",i,j);
+				}
+				i=j+1; */
