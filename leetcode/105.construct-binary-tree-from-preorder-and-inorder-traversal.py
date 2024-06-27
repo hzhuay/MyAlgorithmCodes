@@ -1,3 +1,8 @@
+# @lcpr-before-debug-begin
+from python3problem105 import *
+from typing import *
+# @lcpr-before-debug-end
+
 #
 # @lc app=leetcode.cn id=105 lang=python3
 # @lcpr version=30204
@@ -30,8 +35,16 @@ class Solution:
         if preorder == [] or inorder == []:
             return None
         rootVal = preorder[0]
-        rootIdx = inorder.index(rootVal)
-        root = TreeNode(rootVal, )
+        rootIdx = inorder.index(rootVal) # 中序遍历中，根节点的坐标
+
+        leftIn = inorder[0:rootIdx] # 左子树的中序遍历
+        rightIn = inorder[rootIdx+1:] # 右子树的中序遍历
+
+        leftPre = preorder[1:1+len(leftIn)] # 左子树的前序遍历
+        rightPre = preorder[1+len(leftIn):] # 右子树的前序遍历
+
+        root = TreeNode(rootVal, self.buildTree(leftPre, leftIn), self.buildTree(rightPre, rightIn))
+        return root
 # @lc code=end
 
 
