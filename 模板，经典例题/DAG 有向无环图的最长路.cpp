@@ -6,22 +6,22 @@ const int maxn=1005;
 int n,d[maxn];
 bool G[maxn][maxn];
 int dp(int i){
-	int &ans=d[i];//¿ÉÒÔÓÃÒıÓÃÀ´¼ò½à´úÂë 
+	int &ans=d[i];//å¯ä»¥ç”¨å¼•ç”¨æ¥ç®€æ´ä»£ç  
 	if(ans>0)return ans;
 	ans=1;
 	for(int j=0;j<n;j++)
 		if(G[i][j])ans=max(ans,dp(j)+1);
 	return ans;
 }
-void print_ans(int i){//Èç¹ûÓĞ¶à½â£¬¾ØĞÎ±àºÅµÄ×ÖµäĞò¾¡Á¿Ğ¡
-	printf("%d ",i+1);//±àºÅ´Ó1¿ªÊ¼
+void print_ans(int i){//å¦‚æœæœ‰å¤šè§£ï¼ŒçŸ©å½¢ç¼–å·çš„å­—å…¸åºå°½é‡å°
+	printf("%d ",i+1);//ç¼–å·ä»1å¼€å§‹
 	for(int j=0;j<n;j++)
 		if(G[i][j]&&d[i]==d[j]+1){
 			print_ans(j);
 			break;
 		}
 }
-void build_Graph(){}//¿ÉÄÜÒª½¨Á¢Í¼  
+void build_Graph(){}//å¯èƒ½è¦å»ºç«‹å›¾  
 int main(){
 	int kase;
 	scanf("%d",&kase);
@@ -30,13 +30,13 @@ int main(){
 		int tmp1,tmp2; 
 		for(int i=0;i<n;i++){
 			scanf("%d%d",&tmp1,&tmp2);
-			G[tmp1][tmp2]=G[tmp2][tmp1]=1;//ÎŞÏòÍ¼£¬±ß¶¼ÊÇË«Ïò 
+			G[tmp1][tmp2]=G[tmp2][tmp1]=1;//æ— å‘å›¾ï¼Œè¾¹éƒ½æ˜¯åŒå‘ 
 		}
 		int ans=0;
 		for(int i=1;i<n;i++)
 			if(d[ans]<dp(i))ans=i;
 		printf("%d\n",d[ans]);
-		print_ans(ans);//Êä³öÂ·¾¶ 
+		print_ans(ans);//è¾“å‡ºè·¯å¾„ 
 		memset(d,0,sizeof(d));
 		memset(G,0,sizeof(G));
 	}
