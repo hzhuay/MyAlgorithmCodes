@@ -1,4 +1,4 @@
-//²¢²é¼¯ 
+//å¹¶æŸ¥é›† 
 #include<bits/stdc++.h>
 using namespace std;
 int f[10010];
@@ -9,13 +9,13 @@ int find(int k){
 int main(){
 	int n,m,p1,p2,p3;
     scanf("%d%d",&n,&m);
-    for(int i=1;i<=n;i++)f[i]=i;//³õÊ¼»¯iµÄÀÏ´óÎª×Ô¼º 
+    for(int i=1;i<=n;i++)f[i]=i;//åˆå§‹åŒ–içš„è€å¤§ä¸ºè‡ªå·± 
     for(int i=1;i<=m;i++){
         scanf("%d%d%d",&p1,&p2,&p3);
         if(p1==1)
-            f[find(p2)]=find(p3);//p3´òÓ®ÁËp2
+            f[find(p2)]=find(p3);//p3æ‰“èµ¢äº†p2
         else
-            if(find(p2)==find(p3))//ÊÇ·ñÊÇÒ»»ïµÄ 
+            if(find(p2)==find(p3))//æ˜¯å¦æ˜¯ä¸€ä¼™çš„ 
                 printf("Y\n");
             else
                 printf("N\n");

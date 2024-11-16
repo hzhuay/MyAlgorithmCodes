@@ -1,7 +1,7 @@
 #include<cstdio>
 #include<cmath>
 int phi[100000005];
-int euler_phi(int n){//Ğ¡ÓÚn²¢Óën»¥ÖÊµÄÕûÊı¸öÊı 
+int euler_phi(int n){//å°äºnå¹¶ä¸näº’è´¨çš„æ•´æ•°ä¸ªæ•° 
 	int m=(int)sqrt(n+0.5),ans=n;
 	for(int i=2;i<=m;i++)
 		if(n%i==0){
@@ -11,7 +11,7 @@ int euler_phi(int n){//Ğ¡ÓÚn²¢Óën»¥ÖÊµÄÕûÊı¸öÊı
 	if(n>1)ans=ans/n*(n-1);
 	return ans;
 }
-void phi_table(int n,int* phi){//1-nÖĞËùÓĞÊıµÄÅ·À­phiº¯ÊıÖµ£¬¸´ÔÓ¶ÈO(nloglogn) 
+void phi_table(int n,int* phi){//1-nä¸­æ‰€æœ‰æ•°çš„æ¬§æ‹‰phiå‡½æ•°å€¼ï¼Œå¤æ‚åº¦O(nloglogn) 
 	phi[1]=1;
 	for(int i=2;i<=n;i++)
 		if(!phi[i]){
@@ -26,7 +26,7 @@ int main(){
 	long long n;
 	while(scanf("%d",&n)!=EOF){
 		if(n==1)puts("1");
-		else printf("%lld\n",euler_phi(n)*n/2);//Ğ¡ÓÚn²¢Óën»¥ÖÊµÄÕûÊıµÄºÍ 
+		else printf("%lld\n",euler_phi(n)*n/2);//å°äºnå¹¶ä¸näº’è´¨çš„æ•´æ•°çš„å’Œ 
 		printf("%lld\n",phi[n]*n/2);
 	}
 	return 0;

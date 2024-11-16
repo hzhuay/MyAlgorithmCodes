@@ -9,7 +9,7 @@ int main(){
 		scanf("%d %d",&v[i],&p[i]);
 	for(i=1;i<=n;i++){
 		for(int x=0;x<=m;x++)
-			dp[1][x]=dp[0][x];//¹ö¶¯Êý×é 
+			dp[1][x]=dp[0][x];//æ»šåŠ¨æ•°ç»„ 
 		for(int j=0;j<=m-v[i];j++)
 			if(dp[0][j+v[i]]<dp[1][j]+p[i])
 				dp[0][j+v[i]]=dp[1][j]+p[i];

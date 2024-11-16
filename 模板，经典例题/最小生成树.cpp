@@ -1,20 +1,20 @@
-//×îĞ¡Éú³ÉÊ÷ 
+//æœ€å°ç”Ÿæˆæ ‘ 
 #include<bits/stdc++.h>
 using namespace std;
 const int maxm=200000+5;
 const int maxn=5000+5;
 int n,m,ans,u[maxm],v[maxm],w[maxm],p[maxn],r[maxm];
-int cmp(const int i,const int j){return w[i]<w[j];}//¼ä½ÓÅÅĞòº¯Êı 
-int find(int x){return p[x]==x?x:p[x]=find(p[x]);}//²¢²é¼¯µÄfind 
+int cmp(const int i,const int j){return w[i]<w[j];}//é—´æ¥æ’åºå‡½æ•° 
+int find(int x){return p[x]==x?x:p[x]=find(p[x]);}//å¹¶æŸ¥é›†çš„find 
 int kruskal(){
-	for(int i=0;i<n;i++)p[i]=i;//³õÊ¼»¯²¢²é¼¯ 
-	for(int i=0;i<m;i++)r[i]=i;//³õÊ¼»¯±ßĞòºÅ 
-	sort(r,r+m,cmp);//¸ø±ßÅÅĞò
+	for(int i=0;i<n;i++)p[i]=i;//åˆå§‹åŒ–å¹¶æŸ¥é›† 
+	for(int i=0;i<m;i++)r[i]=i;//åˆå§‹åŒ–è¾¹åºå· 
+	sort(r,r+m,cmp);//ç»™è¾¹æ’åº
 	for(int i=0;i<m;i++){
 		int e=r[i];
 		int x=find(u[e]);
-		int y=find(v[e]);//ÕÒ³öµ±Ç°±ßÁ½¸ö¶ËµãËùÔÚ¼¯ºÏ±àºÅ 
-		if(x!=y){//Èç¹û²»ÔÚÍ³Ò»¼¯ºÏ£¬ºÏ²¢ 
+		int y=find(v[e]);//æ‰¾å‡ºå½“å‰è¾¹ä¸¤ä¸ªç«¯ç‚¹æ‰€åœ¨é›†åˆç¼–å· 
+		if(x!=y){//å¦‚æœä¸åœ¨ç»Ÿä¸€é›†åˆï¼Œåˆå¹¶ 
 			ans+=w[e];
 			p[x]=y;
 		}

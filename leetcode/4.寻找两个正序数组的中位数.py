@@ -1,13 +1,13 @@
 #
-# @lc app=leetcode.cn id=28 lang=python3
+# @lc app=leetcode.cn id=4 lang=python3
 # @lcpr version=30204
 #
-# [28] 找出字符串中第一个匹配项的下标
+# [4] 寻找两个正序数组的中位数
 #
 
 
 # @lcpr-template-start
-from typing import List, ClassVar, Dict, Optional
+from typing import List, ClassVar, Dict, Optional, functools
 class ListNode:
    def __init__(self, val=0, next=None):
        self.val = val
@@ -20,9 +20,7 @@ class TreeNode:
 # @lcpr-template-end
 # @lc code=start
 class Solution:
-    def strStr(self, haystack: str, needle: str) -> int:
-        nextp = []
-        
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         
 # @lc code=end
 
@@ -30,11 +28,11 @@ class Solution:
 
 #
 # @lcpr case=start
-# "sadbutsad"\n"sad"\n
+# [1,3]\n[2]\n
 # @lcpr case=end
 
 # @lcpr case=start
-# "leetcode"\n"leeto"\n
+# [1,2]\n[3,4]\n
 # @lcpr case=end
 
 #
