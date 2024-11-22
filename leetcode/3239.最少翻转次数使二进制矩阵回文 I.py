@@ -7,7 +7,7 @@
 
 
 # @lcpr-template-start
-from typing import List, ClassVar, Dict, Optional, functools
+from typing import List, ClassVar, Dict, Optional
 class ListNode:
    def __init__(self, val=0, next=None):
        self.val = val

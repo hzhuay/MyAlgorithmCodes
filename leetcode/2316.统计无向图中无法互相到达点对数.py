@@ -34,7 +34,22 @@ class Dsu:
 
 class Solution:
     def countPairs(self, n: int, edges: List[List[int]]) -> int:
-        
+        dsu = Dsu(n)
+        for edge in edges:
+            a, b = edge
+            dsu.union(a, b)
+        count = {}
+        for i in range(n):
+            tmp = dsu.find(i)
+            if dsu.find(i) not in count:
+                count[tmp] = 1
+            else:
+                count[tmp] += 1
+        ans = 0
+        print(count)
+        for i in count.values():
+           ans += i * (n - i)
+        return ans // 2
         
 # @lc code=end
 
@@ -46,8 +61,11 @@ class Solution:
 # @lcpr case=end
 
 # @lcpr case=start
-# 7\n[[0,2],[0,5],[2,4],[1,6],[5,4]]\n
+# 7\n[[0,2],[0,5],[2,4],[1,6],[5,4]]\n``
 # @lcpr case=end
 
 #
 
+if __name__=='__main__':
+    print(Solution().countPairs(3, [[0,1],[0,2],[1,2]]))
+    print(Solution().countPairs(7, [[1,6],[5,4],[0,2],[0,5],[2,4]]))
