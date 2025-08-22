@@ -3,3 +3,6 @@ __pycache__
 .vscode
 .ipynb_checkpoints
 tmp
+.venv
+*.ipynb
+*.txt

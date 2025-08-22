@@ -1,13 +1,14 @@
 #
-# @lc app=leetcode.cn id=4 lang=python3
+# @lc app=leetcode.cn id=326 lang=python3
 # @lcpr version=30204
 #
-# [4] 寻找两个正序数组的中位数
+# [326] 3 的幂
 #
 
 
 # @lcpr-template-start
-from typing import List, ClassVar, Dict, Optional, functools
+from typing import List, ClassVar, Dict, Optional
+import functools
 class ListNode:
    def __init__(self, val=0, next=None):
        self.val = val
@@ -20,8 +21,9 @@ class TreeNode:
 # @lcpr-template-end
 # @lc code=start
 class Solution:
-    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        
+    def isPowerOfThree(self, n: int) -> bool:
+        # 3本身是个质数，3^19是int范围内最大的3的幂，如果n是3的幂，那么3^19 % n == 0
+        return n > 0 and 3**19 % n == 0
         
 # @lc code=end
 
@@ -29,11 +31,19 @@ class Solution:
 
 #
 # @lcpr case=start
-# [1,3]\n[2]\n
+# 27\n
 # @lcpr case=end
 
 # @lcpr case=start
-# [1,2]\n[3,4]\n
+# 0\n
+# @lcpr case=end
+
+# @lcpr case=start
+# 9\n
+# @lcpr case=end
+
+# @lcpr case=start
+# 45\n
 # @lcpr case=end
 
 #

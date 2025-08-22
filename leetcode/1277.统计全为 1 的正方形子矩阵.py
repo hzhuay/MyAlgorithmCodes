@@ -1,13 +1,14 @@
 #
-# @lc app=leetcode.cn id=4 lang=python3
+# @lc app=leetcode.cn id=1277 lang=python3
 # @lcpr version=30204
 #
-# [4] 寻找两个正序数组的中位数
+# [1277] 统计全为 1 的正方形子矩阵
 #
 
 
 # @lcpr-template-start
-from typing import List, ClassVar, Dict, Optional, functools
+from typing import List, ClassVar, Dict, Optional
+import functools
 class ListNode:
    def __init__(self, val=0, next=None):
        self.val = val
@@ -20,7 +21,7 @@ class TreeNode:
 # @lcpr-template-end
 # @lc code=start
 class Solution:
-    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+    def countSquares(self, matrix: List[List[int]]) -> int:
         
         
 # @lc code=end
@@ -29,11 +30,11 @@ class Solution:
 
 #
 # @lcpr case=start
-# [1,3]\n[2]\n
+# [[0,1,1,1],[1,1,1,1],[0,1,1,1]]\n
 # @lcpr case=end
 
 # @lcpr case=start
-# [1,2]\n[3,4]\n
+# [[1,0,1],[1,1,0],[1,1,0]]\n
 # @lcpr case=end
 
 #
