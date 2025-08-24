@@ -1,13 +1,14 @@
 #
-# @lc app=leetcode.cn id=10 lang=python3
-# @lcpr version=
+# @lc app=leetcode.cn id=1137 lang=python3
+# @lcpr version=30204
 #
-# [10] 正则表达式匹配
+# [1137] 第 N 个泰波那契数
 #
 
 
 # @lcpr-template-start
 from typing import List, ClassVar, Dict, Optional
+import functools
 class ListNode:
    def __init__(self, val=0, next=None):
        self.val = val
@@ -20,23 +21,23 @@ class TreeNode:
 # @lcpr-template-end
 # @lc code=start
 class Solution:
-    def isMatch(self, s: str, p: str) -> bool:
-        
+    def tribonacci(self, n: int) -> int:
+        dp = [0, 1, 1]
+        for i in range(3, n + 1):
+            dp.append(dp[i - 1] + dp[i - 2] + dp[i - 3])
+        return dp[n]
+
 # @lc code=end
 
 
 
 #
 # @lcpr case=start
-# "aa"\n"a"\n
+# 4\n
 # @lcpr case=end
 
 # @lcpr case=start
-# "aa"\n"a*"\n
-# @lcpr case=end
-
-# @lcpr case=start
-# "ab"\n".*"\n
+# 25\n
 # @lcpr case=end
 
 #

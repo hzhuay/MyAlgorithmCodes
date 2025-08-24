@@ -1,13 +1,14 @@
 #
-# @lc app=leetcode.cn id=22 lang=python3
+# @lc app=leetcode.cn id=198 lang=python3
 # @lcpr version=30204
 #
-# [22] 括号生成
+# [198] 打家劫舍
 #
 
 
 # @lcpr-template-start
 from typing import List, ClassVar, Dict, Optional
+import functools
 class ListNode:
    def __init__(self, val=0, next=None):
        self.val = val
@@ -20,7 +21,15 @@ class TreeNode:
 # @lcpr-template-end
 # @lc code=start
 class Solution:
-    def generateParenthesis(self, n: int) -> List[str]:
+    def rob(self, nums: List[int]) -> int:
+        n = len(nums)
+        dp = nums.copy()
+        for i in range(1, n):
+            if i == 1:
+                dp[i] = max(nums[0], nums[1])
+            else:
+                dp[i] = max(dp[i-1], dp[i-2] + nums[i])
+        return dp[n-1]
         
 # @lc code=end
 
@@ -28,11 +37,11 @@ class Solution:
 
 #
 # @lcpr case=start
-# 3\n
+# [1,2,3,1]\n
 # @lcpr case=end
 
 # @lcpr case=start
-# 1\n
+# [2,7,9,3,1]\n
 # @lcpr case=end
 
 #
