@@ -22,6 +22,20 @@ class TreeNode:
 # @lc code=start
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
+        dp = [0] + [-1] * amount # dp[i]表示到达i金额的最小硬币数量
+        for c in coins:
+            for i in range(c, amount+1):
+                if dp[i-c] == 0:
+                    dp[i] = 1
+                elif dp[i-c] > 0:
+                    if dp[i] == -1:
+                        dp[i] = dp[i - c] + 1
+                    else:
+                        dp[i] = min(dp[i], dp[i - c] + 1)
+                i += c
+        # print(dp)
+        return dp[amount]
+                    
         
 # @lc code=end
 
@@ -42,3 +56,6 @@ class Solution:
 
 #
 
+if __name__ == '__main__':
+    s = Solution()
+    s.coinChange([1, 2, 5], 11)

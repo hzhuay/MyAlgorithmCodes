@@ -22,13 +22,24 @@ class TreeNode:
 # @lc code=start
 class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
-        dp = [1] + [0] * amount # dp[i]表示达到i金额最多有多少种可能
-        for i in range(1, amount+1):
-            for j in coins:
-                if i >= j and dp[i-j] > 0:
-                    dp[i] += dp[i-j]
-        print(dp)
-        return dp[amount]
+        # dp = [1] + [0] * amount # dp[i]表示达到i金额最多有多少种可能
+        # # dp[i][j]表示用前i种硬币能达到j金额有多少方案
+        # for i in coins:
+        #     for j in range(1, amount+1):
+        #         if j >= i:
+        #             dp[j] += dp[j - i]
+        # return dp[amount]
+        n = len(coins)
+        dp = [[0] * (amount + 1) for _ in range(n + 1)]
+        dp[0][0] = 1
+        for i in range(n):
+             for j in range(amount+1):
+                if coins[i] > j:
+                    dp[i+1][j] = dp[i][j]
+                else:
+                    dp[i+1][j] = dp[i][j] + dp[i+1][j-coins[i]]
+        # print(dp)
+        return dp[n][amount]
          
         
 # @lc code=end
@@ -50,3 +61,6 @@ class Solution:
 
 #
 
+if __name__ == '__main__':
+    s = Solution()
+    print(s.change(4, [1,2,3]))
