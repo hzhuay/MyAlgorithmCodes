@@ -16,14 +16,12 @@ class ListNode:
 # @lc code=start
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        n = len(prices)
-        leftMax = 0 # 从右往左遍历时遇到的最大值
+        buy = prices[0]
         ans = 0
-        for i in range(n, 0, -1):
-            leftMax = max(leftMax, prices[i-1])
-            if i < n:
-                ans = max(ans, leftMax - prices[i-1])
-        return ans
+        for sell in prices[1:]:
+            ans = max(ans, sell-buy)
+            buy = min(buy, sell)
+        return ans         
     
 
 
