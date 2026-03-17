@@ -31,7 +31,12 @@ class Solution:
             target = -nums[i]
             l, r = i+1, n-1 # l和r分别是i右边区间的头尾
             while l < r :
-                if nums[l] + nums[r] == target: # 满足条件
+                # 如果小就l向右，大了就r向左
+                if nums[l] + nums[r] < target:
+                    l += 1
+                elif nums[l] + nums[r] > target:
+                    r -= 1
+                else: # 相等
                     ans.append([nums[i], nums[l], nums[r]])
                     
                     # 跳过重复的l和r
@@ -42,14 +47,8 @@ class Solution:
                     # 现在nums[l]!=nums[l+1]了，l再加1，下次循环从l+1开始。r同理
                     l += 1
                     r -= 1
-                
-                # 如果小就l向右，大了就r向左
-                elif nums[l] + nums[r] < target:
-                    l += 1
-                else:
-                    r -= 1
-
-        return ans
+        return ans                
+            
 # @lc code=end
 
 
@@ -72,3 +71,4 @@ class Solution:
 if __name__ == "__main__":
     s = Solution()
     print(s.threeSum([-100,-70,-60,110,120,130,160]))
+    print(s.threeSum([1,2,0,1,0,0,0,0]))

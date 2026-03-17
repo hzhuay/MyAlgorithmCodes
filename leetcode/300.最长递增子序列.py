@@ -31,15 +31,17 @@ class Solution:
         return max(dp)
         
     # 用二分，可以优化到O(NlogN)
-    def lengthOfLISByBinarySearch(self, nums: List[int]) -> int:
+    def lengthOfLISBuuyBinarySearch(self, nums: List[int]) -> int:
         n = len(nums)
-        lis = [nums[0]] # lis[i]的定义是长度为i+1的lis，结尾元素即最大值是lis[i]
-        for i in range(1, n):
-            if nums[i] > lis[-1]: # 如果比lis尾部还大，直接加入
+        lis = [] # lis[i]的定义是长度为i+1的lis，结尾元素即最大值是lis[i]
+        # 贪心：为了让后续能接更多数字，我们希望相同长度的递增子序列末尾尽可能小。
+        # 最终lis数组长度，就是答案
+        for i in range(n):
+            idx = bisect.bisect_left(lis, nums[i])
+            if idx == len(lis): # 如果比lis尾部还大，直接加入
                 lis.append(nums[i])
             else: # 比lis尾部小或等于，则lis可以优化
                 # 用二分法找到第一个大于等于nums[i]的位置，替换掉
-                idx = bisect.bisect_left(lis, nums[i])
                 lis[idx] = nums[i]
         return len(lis)
 

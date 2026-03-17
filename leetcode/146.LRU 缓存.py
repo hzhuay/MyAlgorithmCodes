@@ -18,7 +18,7 @@ class TreeNode:
 # @lcpr-template-end
 # @lc code=start
 class ListNode:
-    def __init__(self, key=0, val=0, next=None, prev=None):
+    def __init__(self, key=0, val=0, next: Optional["ListNode"] = None, prev: Optional["ListNode"] = None):
        self.val = val
        self.key = key
        self.next = next
@@ -40,6 +40,8 @@ class LRUCache:
         self.tail.prev = self.head
         
     def __remove_node(self, node: ListNode):
+        assert node.prev is not None
+        assert node.next is not None
         node.prev.next = node.next
         node.next.prev = node.prev
         
@@ -48,12 +50,6 @@ class LRUCache:
         node.prev = self.head
         node.next.prev = node
         self.head.next = node
-    
-    def __push_tail(self, node: ListNode):
-        node.next = self.tail
-        node.prev = self.tail.prev
-        self.tail.prev = node
-        node.prev.next = node
 
     def __move_to_head(self, node: ListNode):
         self.__remove_node(node)
@@ -82,8 +78,7 @@ class LRUCache:
             if len(self.m) > self.cap:
                 remove = self.tail.prev
                 self.__remove_node(remove)
-                del self.m[remove.key]
-
+                del self.m[remove.key]        
 
 # Your LRUCache object will be instantiated and called as such:
 # obj = LRUCache(capacity)

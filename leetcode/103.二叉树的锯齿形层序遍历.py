@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=102 lang=python3
+# @lc app=leetcode.cn id=103 lang=python3
 # @lcpr version=30204
 #
-# [102] 二叉树的层序遍历
+# [103] 二叉树的锯齿形层序遍历
 #
 
 
@@ -27,7 +27,7 @@ class TreeNode:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         if not root:
             return []
         q = [root]
@@ -42,6 +42,10 @@ class Solution:
                 if node.right:
                     tmp.append(node.right)
             q = tmp
+
+        for i in range(len(ans)):
+            if i % 2 == 1:
+                ans[i].reverse()
         return ans
 # @lc code=end
 

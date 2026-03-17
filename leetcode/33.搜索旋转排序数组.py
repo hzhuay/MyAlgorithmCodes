@@ -31,7 +31,7 @@ class Solution:
                 return mid
             
             # 左右两个区间，只有一个是有序的。先判断出哪个区间是有序的，再判断target是否在有序区间内，否则就查询无序区间
-            if nums[l] <= nums[mid]: # 左边有序
+            if nums[l] <= nums[mid]: # 必须是<=，因为当数组长度=2时，l=mid
                 if nums[l] <= target < nums[mid]:
                     r = mid - 1
                 else:
